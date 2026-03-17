@@ -52,9 +52,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Your Backup Monitoring
+            The Backup Dashboard
             <br />
-            Got Acquired. Again.
+            That Should Have Existed.
           </motion.h1>
 
           <motion.p
@@ -63,9 +63,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            AI-powered backup monitoring that cuts alert noise by 60%, costs less
-            than what you&apos;re paying now, and will never get sold to a private
-            equity firm.
+            AI-powered backup monitoring that cuts alert noise by 60%.
+            Transparent pricing, no contracts, and built by an MSP — not a PE firm.
           </motion.p>
 
           <motion.div
