@@ -20,8 +20,8 @@ const columns = [
     links: [
       { label: 'About', href: '#' },
       { label: 'The Pledge', href: '#pledge' },
-      { label: 'Privacy', href: '#' },
-      { label: 'Terms', href: '#' },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
     ],
   },
   {
@@ -30,7 +30,7 @@ const columns = [
       { label: 'X / Twitter', href: 'https://x.com/shieldpulse' },
       { label: 'Discord', href: '#' },
       { label: 'GitHub', href: 'https://github.com/shieldpulse' },
-      { label: 'Email', href: 'mailto:hello@shieldpulse.io' },
+      { label: 'Email', href: 'mailto:support@shieldpulse.io' },
     ],
   },
 ];
