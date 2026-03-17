@@ -242,10 +242,10 @@ export default function PrivacyPage() {
             <p>
               To exercise any of these rights, contact us at{' '}
               <a
-                href="mailto:support@shieldpulse.io"
+                href="mailto:contact@shieldpulse.io"
                 className="text-accent-green hover:underline"
               >
-                support@shieldpulse.io
+                contact@shieldpulse.io
               </a>
               . We will respond within 30 days.
             </p>
@@ -287,10 +287,10 @@ export default function PrivacyPage() {
               <p className="mt-2">
                 Email:{' '}
                 <a
-                  href="mailto:support@shieldpulse.io"
+                  href="mailto:contact@shieldpulse.io"
                   className="text-accent-green hover:underline"
                 >
-                  support@shieldpulse.io
+                  contact@shieldpulse.io
                 </a>
               </p>
             </div>

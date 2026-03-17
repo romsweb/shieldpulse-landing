@@ -30,7 +30,7 @@ const columns = [
       { label: 'X / Twitter', href: 'https://x.com/shieldpulse' },
       { label: 'Discord', href: '#' },
       { label: 'GitHub', href: 'https://github.com/shieldpulse' },
-      { label: 'Email', href: 'mailto:support@shieldpulse.io' },
+      { label: 'Email', href: 'mailto:contact@shieldpulse.io' },
     ],
   },
 ];

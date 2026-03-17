@@ -51,8 +51,8 @@ export default function FinalCta() {
           transition={{ delay: 0.45, duration: 0.6 }}
         >
           Questions?{' '}
-          <a href="mailto:support@shieldpulse.io" className="text-text-secondary hover:text-text-primary underline transition-colors">
-            support@shieldpulse.io
+          <a href="mailto:contact@shieldpulse.io" className="text-text-secondary hover:text-text-primary underline transition-colors">
+            contact@shieldpulse.io
           </a>
         </motion.p>
       </div>

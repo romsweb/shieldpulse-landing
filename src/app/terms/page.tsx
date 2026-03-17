@@ -77,10 +77,10 @@ export default function TermsPage() {
               <li>
                 You must notify us immediately at{' '}
                 <a
-                  href="mailto:support@shieldpulse.io"
+                  href="mailto:contact@shieldpulse.io"
                   className="text-accent-green hover:underline"
                 >
-                  support@shieldpulse.io
+                  contact@shieldpulse.io
                 </a>{' '}
                 if you suspect unauthorized access to your account.
               </li>
@@ -348,10 +348,10 @@ export default function TermsPage() {
               <p className="mt-2">
                 Email:{' '}
                 <a
-                  href="mailto:support@shieldpulse.io"
+                  href="mailto:contact@shieldpulse.io"
                   className="text-accent-green hover:underline"
                 >
-                  support@shieldpulse.io
+                  contact@shieldpulse.io
                 </a>
               </p>
             </div>
