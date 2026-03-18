@@ -48,8 +48,8 @@ const plans: Plan[] = [
       'Email support',
     ],
     cta: 'Start Pro Trial',
-    featured: true,
-    badge: 'Most Popular',
+    featured: false,
+    badge: null,
   },
   {
     name: 'Business',
@@ -67,8 +67,8 @@ const plans: Plan[] = [
       '1 year history',
     ],
     cta: 'Start Business Trial',
-    featured: false,
-    badge: null,
+    featured: true,
+    badge: 'Most Popular',
   },
 ];
 
