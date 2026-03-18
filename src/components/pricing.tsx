@@ -67,7 +67,6 @@ const plans: Plan[] = [
       { text: 'Unlimited history' },
       { text: 'Priority support' },
       { text: 'Custom alert rules', soon: true },
-      { text: 'Phone support', soon: true },
     ],
     cta: 'Start Business Trial',
     href: 'https://app.shieldpulse.io?plan=business',
