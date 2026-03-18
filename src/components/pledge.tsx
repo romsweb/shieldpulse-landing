@@ -4,19 +4,23 @@ import { motion } from 'framer-motion';
 import Section from './ui/section';
 
 const commitments = [
-  'Bootstrapped. No venture capital. No private equity.',
-  'Will not sell to rollup operators or consolidators.',
-  'Pricing changes announced 90 days in advance, always.',
-  'If the economics don\u2019t work, 12 months sunset notice minimum.',
+  'Transparent pricing. Always published. Always monthly.',
+  'Pricing changes announced 90 days in advance.',
+  'No forced annual contracts. Ever.',
+  'If we sunset, 12 months notice + migration help.',
+  'Built by an MSP. Run like an MSP. Decisions made by people who answer tickets, not boards.',
 ];
 
 export default function Pledge() {
   return (
     <Section id="pledge" className="bg-bg-primary">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-16">
-          We will not get acquired.
+        <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-4">
+          Our pledge to MSPs.
         </h2>
+        <p className="text-text-secondary text-center mb-16 max-w-xl mx-auto">
+          Built different. Run different.
+        </p>
 
         <motion.div
           className="bg-bg-surface border-2 border-accent-green/40 rounded-xl p-8 sm:p-12"
@@ -26,16 +30,8 @@ export default function Pledge() {
           transition={{ duration: 0.6 }}
         >
           <div className="space-y-4 text-text-secondary leading-relaxed mb-8">
-            <p>
-              I&apos;m Romain. I&apos;ve run an MSP in Nouvelle-Cal&eacute;donie for 15 years.
-              300+ clients. When our backup monitoring tool got acquired for the
-              second time in three years, I decided to build the tool I actually
-              wanted.
-            </p>
-            <p>
-              Sentinel exists because I needed it. Not because a VC told me the
-              TAM was attractive. Not because there&apos;s an exit strategy on a slide
-              deck somewhere.
+            <p className="font-mono text-lg text-text-primary">
+              Our commitment to MSPs.
             </p>
             <p>
               Here is what I commit to:
