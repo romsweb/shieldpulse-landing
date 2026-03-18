@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/section';
 
 interface Plan {
   name: string;
   monthlyPrice: number;
-  annualPrice: number;
   description: string;
   features: string[];
   cta: string;
@@ -20,7 +18,6 @@ const plans: Plan[] = [
   {
     name: 'Free',
     monthlyPrice: 0,
-    annualPrice: 0,
     description: 'Get started with basic monitoring.',
     features: [
       'Up to 25 devices',
@@ -37,7 +34,6 @@ const plans: Plan[] = [
   {
     name: 'Pro',
     monthlyPrice: 49,
-    annualPrice: 39.20,
     description: 'For growing MSPs that need AI and integrations.',
     features: [
       '100 devices included',
@@ -57,7 +53,6 @@ const plans: Plan[] = [
   {
     name: 'Business',
     monthlyPrice: 149,
-    annualPrice: 119.20,
     description: 'For established MSPs with large device fleets.',
     features: [
       '500 devices included',
@@ -93,49 +88,15 @@ function formatPrice(price: number): string {
 }
 
 export default function Pricing() {
-  const [annual, setAnnual] = useState(false);
-
   return (
     <Section id="pricing" className="bg-bg-primary">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-4">
           Pricing that respects your intelligence
         </h2>
-        <p className="text-text-secondary text-center mb-8 max-w-2xl mx-auto">
+        <p className="text-text-secondary text-center mb-8 max-w-2xl mx-auto mb-12">
           No hidden fees. No annual lock-in. Cancel anytime with one click.
         </p>
-
-        {/* Billing toggle */}
-        <div className="flex items-center justify-center gap-3 mb-12">
-          <span
-            className={`text-sm font-medium ${!annual ? 'text-text-primary' : 'text-text-muted'}`}
-          >
-            Monthly
-          </span>
-          <button
-            onClick={() => setAnnual(!annual)}
-            className={`relative w-12 h-6 rounded-full transition-colors ${
-              annual ? 'bg-accent-green' : 'bg-border'
-            }`}
-            aria-label="Toggle annual billing"
-          >
-            <span
-              className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform ${
-                annual ? 'translate-x-6' : ''
-              }`}
-            />
-          </button>
-          <span
-            className={`text-sm font-medium ${annual ? 'text-text-primary' : 'text-text-muted'}`}
-          >
-            Annual
-          </span>
-          {annual && (
-            <span className="text-xs font-mono font-bold text-accent-green bg-accent-green/10 border border-accent-green/30 px-2 py-0.5 rounded-full">
-              -20%
-            </span>
-          )}
-        </div>
 
         <motion.div
           className="grid md:grid-cols-3 gap-6 mb-8"
@@ -145,12 +106,8 @@ export default function Pricing() {
           viewport={{ once: true, margin: '-60px' }}
         >
           {plans.map((plan) => {
-            const price = annual ? plan.annualPrice : plan.monthlyPrice;
-            const periodLabel = plan.monthlyPrice === 0
-              ? '/mo'
-              : annual
-                ? '/mo billed annually'
-                : '/mo';
+            const price = plan.monthlyPrice;
+            const periodLabel = '/mo';
 
             return (
               <motion.div
@@ -177,16 +134,7 @@ export default function Pricing() {
                   </span>
                   <span className="text-text-muted text-sm">{periodLabel}</span>
                 </div>
-                {annual && plan.monthlyPrice > 0 && (
-                  <p className="text-xs text-text-muted mb-4">
-                    <span className="line-through">${plan.monthlyPrice}/mo</span>
-                    {' '}
-                    <span className="text-accent-green">
-                      Save ${((plan.monthlyPrice - plan.annualPrice) * 12).toFixed(0)}/year
-                    </span>
-                  </p>
-                )}
-                {!annual && <div className="mb-4" />}
+                <div className="mb-4" />
                 <p className="text-sm text-text-secondary mb-6">{plan.description}</p>
 
                 <ul className="space-y-3 mb-8 flex-1">
@@ -236,9 +184,7 @@ export default function Pricing() {
         </motion.div>
 
         <p className="text-center text-sm text-text-muted font-mono">
-          Month-to-month. Always. No activation fees. No setup fees.
-          <br />
-          Annual billing available — save 20%. Never required.
+          Month-to-month. Always. No activation fees. No setup fees. Cancel anytime.
         </p>
       </div>
     </Section>
