@@ -3,11 +3,16 @@
 import { motion } from 'framer-motion';
 import Section from './ui/section';
 
+interface Feature {
+  text: string;
+  soon?: boolean;
+}
+
 interface Plan {
   name: string;
   monthlyPrice: number;
   description: string;
-  features: string[];
+  features: Feature[];
   cta: string;
   href: string;
   featured: boolean;
@@ -20,11 +25,11 @@ const plans: Plan[] = [
     monthlyPrice: 0,
     description: 'Get started with basic monitoring.',
     features: [
-      'Up to 25 devices',
-      'Single vendor (Acronis)',
-      'Email alerts',
-      '7 days history',
-      '1 user',
+      { text: 'Up to 25 devices' },
+      { text: 'Acronis monitoring' },
+      { text: 'Email alerts' },
+      { text: '30 days history' },
+      { text: '1 user' },
     ],
     cta: 'Start Free',
     href: 'https://app.shieldpulse.io',
@@ -36,14 +41,14 @@ const plans: Plan[] = [
     monthlyPrice: 49,
     description: 'For growing MSPs that need AI and integrations.',
     features: [
-      '100 devices included',
-      '+$0.75/device beyond 100',
-      'Multi-vendor support',
-      'AI alert triage',
-      'Slack & webhook notifications',
-      '90 days history',
-      'Up to 5 users',
-      'Email support',
+      { text: '100 devices included' },
+      { text: '+$0.75/device beyond 100' },
+      { text: 'AI alert triage' },
+      { text: '90 days history' },
+      { text: 'Up to 3 users' },
+      { text: 'Email support' },
+      { text: 'Multi-vendor support', soon: true },
+      { text: 'Slack & webhook notifications', soon: true },
     ],
     cta: 'Start Pro Trial',
     href: 'https://app.shieldpulse.io?plan=pro',
@@ -55,14 +60,14 @@ const plans: Plan[] = [
     monthlyPrice: 149,
     description: 'For established MSPs with large device fleets.',
     features: [
-      '500 devices included',
-      '+$0.50/device beyond 500',
-      'Everything in Pro',
-      'Unlimited users',
-      'Priority support',
-      'Phone support',
-      'Custom alert rules',
-      '1 year history',
+      { text: '500 devices included' },
+      { text: '+$0.50/device beyond 500' },
+      { text: 'Everything in Pro' },
+      { text: 'Unlimited users' },
+      { text: 'Unlimited history' },
+      { text: 'Priority support' },
+      { text: 'Custom alert rules', soon: true },
+      { text: 'Phone support', soon: true },
     ],
     cta: 'Start Business Trial',
     href: 'https://app.shieldpulse.io?plan=business',
@@ -139,9 +144,16 @@ export default function Pricing() {
 
                 <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-text-secondary">
-                      <span className="text-accent-green mt-0.5 shrink-0">&#10003;</span>
-                      {feature}
+                    <li key={feature.text} className={`flex items-start gap-2 text-sm ${feature.soon ? 'text-text-muted' : 'text-text-secondary'}`}>
+                      <span className={`mt-0.5 shrink-0 ${feature.soon ? 'text-text-muted' : 'text-accent-green'}`}>
+                        {feature.soon ? '○' : '✓'}
+                      </span>
+                      {feature.text}
+                      {feature.soon && (
+                        <span className="text-xs font-mono text-text-muted border border-border rounded px-1 py-0.5 ml-auto shrink-0">
+                          soon
+                        </span>
+                      )}
                     </li>
                   ))}
                 </ul>
