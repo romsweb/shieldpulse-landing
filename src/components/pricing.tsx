@@ -208,6 +208,55 @@ export default function Pricing() {
           </a>
         </motion.div>
 
+        {/* How we count devices */}
+        <motion.div
+          className="bg-bg-surface border border-border rounded-xl p-8 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="font-mono text-lg font-semibold text-text-primary mb-2">
+            How we count devices
+          </h3>
+          <p className="text-sm text-text-secondary mb-6">
+            You only pay for machines you actually monitor for backup. Not for every agent deployed.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div className="flex items-start gap-3 text-sm">
+              <span className="text-accent-green mt-0.5 shrink-0">✓</span>
+              <div>
+                <span className="text-text-primary">Acronis agent with backup plan</span>
+                <span className="text-text-muted"> — counted</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-sm">
+              <span className="text-text-muted mt-0.5 shrink-0">✕</span>
+              <div>
+                <span className="text-text-primary">Acronis agent for cyber only</span>
+                <span className="text-text-muted"> — exclude it, not counted</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-sm">
+              <span className="text-accent-green mt-0.5 shrink-0">✓</span>
+              <div>
+                <span className="text-text-primary">Multiple backup plans, same machine</span>
+                <span className="text-text-muted"> — 1 device</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 text-sm">
+              <span className="text-text-muted mt-0.5 shrink-0">✕</span>
+              <div>
+                <span className="text-text-primary">Machine excluded from monitoring</span>
+                <span className="text-text-muted"> — not counted</span>
+              </div>
+            </div>
+          </div>
+          <p className="text-sm text-text-muted mt-6 font-mono">
+            Your bill reflects what you protect, not what you deploy.
+          </p>
+        </motion.div>
+
         <p className="text-center text-sm text-text-muted font-mono">
           Month-to-month. Always. No activation fees. No setup fees. Cancel anytime.
         </p>
