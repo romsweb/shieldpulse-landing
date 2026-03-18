@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/section';
 
@@ -74,6 +75,24 @@ const plans: Plan[] = [
     featured: true,
     badge: 'Most Popular',
   },
+  {
+    name: 'Scale',
+    monthlyPrice: 299,
+    description: 'Unbeatable pricing for large MSPs.',
+    features: [
+      { text: '1,000 devices included' },
+      { text: '+$0.25/device beyond 1,000' },
+      { text: 'Everything in Business' },
+      { text: 'Unlimited users' },
+      { text: 'Unlimited history' },
+      { text: 'Priority support + direct founder access' },
+      { text: 'Custom alert rules', soon: true },
+    ],
+    cta: 'Start Scale Trial',
+    href: 'https://app.shieldpulse.io?plan=scale',
+    featured: false,
+    badge: 'Best Value for Growth',
+  },
 ];
 
 const stagger = {
@@ -92,6 +111,141 @@ function formatPrice(price: number): string {
   return `$${price.toFixed(2)}`;
 }
 
+function calculateShieldPulsePrice(devices: number): { price: number; plan: string } {
+  if (devices <= 25) return { price: 0, plan: 'Free' };
+  if (devices <= 100) return { price: 49, plan: 'Pro' };
+  if (devices <= 250) {
+    const proPrice = 49 + (devices - 100) * 0.75;
+    return proPrice < 149 ? { price: proPrice, plan: 'Pro' } : { price: 149, plan: 'Business' };
+  }
+  if (devices <= 1000) {
+    const bizPrice = 149 + Math.max(0, devices - 500) * 0.50;
+    return bizPrice < 299 ? { price: bizPrice, plan: 'Business' } : { price: 299, plan: 'Scale' };
+  }
+  const scalePrice = 299 + (devices - 1000) * 0.25;
+  return { price: scalePrice, plan: 'Scale' };
+}
+
+function PricingCalculator() {
+  const [devices, setDevices] = useState(100);
+
+  const { price, plan } = calculateShieldPulsePrice(devices);
+  const industryAverage = devices * 0.65;
+  const savings = industryAverage - price;
+
+  return (
+    <motion.div
+      className="bg-bg-surface border border-border rounded-xl p-8 mb-12"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <h3 className="font-mono text-lg font-semibold text-text-primary mb-2 text-center">
+        Pricing Calculator
+      </h3>
+      <p className="text-sm text-text-secondary text-center mb-8">
+        See how much you save with ShieldPulse.
+      </p>
+
+      {/* Slider */}
+      <div className="max-w-md mx-auto mb-10">
+        <label className="block font-mono text-sm text-text-secondary mb-3 text-center">
+          How many devices do you monitor?
+        </label>
+        <div className="flex items-center gap-4">
+          <input
+            type="range"
+            min={1}
+            max={2000}
+            value={devices}
+            onChange={(e) => setDevices(Number(e.target.value))}
+            className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer accent-accent-green"
+          />
+          <input
+            type="number"
+            min={1}
+            max={10000}
+            value={devices}
+            onChange={(e) => setDevices(Math.max(1, Number(e.target.value) || 1))}
+            className="w-24 bg-bg-primary border border-border rounded-lg px-3 py-2 text-center font-mono text-text-primary text-sm focus:outline-none focus:border-accent-green"
+          />
+        </div>
+      </div>
+
+      {/* Comparison table */}
+      <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+        <motion.div
+          key={`sp-${devices}`}
+          initial={{ opacity: 0.5, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.2 }}
+          className="bg-bg-primary border border-accent-green/30 rounded-xl p-6 text-center"
+        >
+          <p className="font-mono text-xs text-accent-green uppercase tracking-wider mb-1">
+            ShieldPulse
+          </p>
+          <p className="font-mono text-3xl font-bold text-text-primary mb-1">
+            ${price % 1 === 0 ? price : price.toFixed(2)}
+          </p>
+          <p className="text-xs text-text-muted font-mono">/mo</p>
+          <p className="text-xs text-accent-green font-mono mt-2 border border-accent-green/20 rounded px-2 py-1 inline-block">
+            {plan}
+          </p>
+        </motion.div>
+
+        <motion.div
+          key={`ia-${devices}`}
+          initial={{ opacity: 0.5, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.2 }}
+          className="bg-bg-primary border border-border rounded-xl p-6 text-center"
+        >
+          <p className="font-mono text-xs text-text-muted uppercase tracking-wider mb-1">
+            Industry Average
+          </p>
+          <p className="font-mono text-3xl font-bold text-text-muted mb-1">
+            ${industryAverage % 1 === 0 ? industryAverage : industryAverage.toFixed(2)}
+          </p>
+          <p className="text-xs text-text-muted font-mono">/mo</p>
+          <p className="text-xs text-text-muted font-mono mt-2">
+            @ $0.65/device
+          </p>
+        </motion.div>
+
+        <motion.div
+          key={`sv-${devices}`}
+          initial={{ opacity: 0.5, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.2 }}
+          className={`bg-bg-primary border rounded-xl p-6 text-center ${
+            savings > 0 ? 'border-accent-green/30' : 'border-border'
+          }`}
+        >
+          <p className="font-mono text-xs text-text-muted uppercase tracking-wider mb-1">
+            Your Savings
+          </p>
+          <p className={`font-mono text-3xl font-bold mb-1 ${
+            savings > 0 ? 'text-accent-green' : 'text-text-muted'
+          }`}>
+            {savings > 0 ? `$${savings % 1 === 0 ? savings : savings.toFixed(2)}` : '$0'}
+          </p>
+          <p className="text-xs text-text-muted font-mono">/mo</p>
+          {savings > 0 && (
+            <p className="text-xs text-accent-green font-mono mt-2">
+              {Math.round((savings / industryAverage) * 100)}% less
+            </p>
+          )}
+        </motion.div>
+      </div>
+
+      <p className="text-center text-sm text-text-muted font-mono">
+        Unlike others, we don&apos;t care if it&apos;s a server or a laptop. A device is a device.
+      </p>
+    </motion.div>
+  );
+}
+
 export default function Pricing() {
   return (
     <Section id="pricing" className="bg-bg-primary">
@@ -104,7 +258,7 @@ export default function Pricing() {
         </p>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-6 mb-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -186,28 +340,6 @@ export default function Pricing() {
           </span>
         </motion.div>
 
-        {/* Enterprise */}
-        <motion.div
-          className="bg-bg-surface border border-border rounded-xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div>
-            <h3 className="font-mono text-lg font-semibold text-text-primary mb-1">Enterprise</h3>
-            <p className="text-sm text-text-secondary">
-              Custom device counts, SLAs, dedicated support, and on-premises options. Let&apos;s talk.
-            </p>
-          </div>
-          <a
-            href="mailto:contact@shieldpulse.io"
-            className="shrink-0 border border-border text-text-secondary hover:text-text-primary hover:border-text-muted px-6 py-3 rounded-lg transition-colors font-medium"
-          >
-            Contact Us
-          </a>
-        </motion.div>
-
         {/* How we count devices */}
         <motion.div
           className="bg-bg-surface border border-border rounded-xl p-8 mb-12"
@@ -256,6 +388,12 @@ export default function Pricing() {
             Your bill reflects what you protect, not what you deploy.
           </p>
         </motion.div>
+
+        <p className="text-center text-lg font-mono font-bold text-accent-green mb-8">
+          No &quot;Server Tax&quot; — 1 Device = 1 Device
+        </p>
+
+        <PricingCalculator />
 
         <p className="text-center text-sm text-text-muted font-mono">
           Month-to-month. Always. No activation fees. No setup fees. Cancel anytime.
