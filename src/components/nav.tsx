@@ -49,13 +49,13 @@ export default function Nav() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="#"
+            href="https://app.shieldpulse.io"
             className="text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
             Login
           </a>
           <a
-            href="#pricing"
+            href="https://app.shieldpulse.io"
             className="text-sm font-medium bg-accent-green text-bg-primary px-4 py-2 rounded-lg glow-green hover:brightness-110 transition-all"
           >
             Start Free &rarr;
@@ -107,11 +107,11 @@ export default function Nav() {
                 </a>
               ))}
               <hr className="border-border" />
-              <a href="#" className="text-text-secondary hover:text-text-primary transition-colors">
+              <a href="https://app.shieldpulse.io" className="text-text-secondary hover:text-text-primary transition-colors">
                 Login
               </a>
               <a
-                href="#pricing"
+                href="https://app.shieldpulse.io"
                 className="text-center font-medium bg-accent-green text-bg-primary px-4 py-2 rounded-lg glow-green"
                 onClick={() => setMobileOpen(false)}
               >

@@ -36,7 +36,7 @@ export default function FinalCta() {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           <a
-            href="#pricing"
+            href="https://app.shieldpulse.io"
             className="inline-flex items-center gap-2 bg-accent-green text-bg-primary font-bold text-lg px-8 py-4 rounded-xl glow-green hover:brightness-110 transition-all"
           >
             Start Free &mdash; 25 Devices

@@ -74,7 +74,7 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <a
-              href="#pricing"
+              href="https://app.shieldpulse.io"
               className="inline-flex items-center gap-2 bg-accent-green text-bg-primary font-semibold px-6 py-3 rounded-lg glow-green hover:brightness-110 transition-all text-base"
             >
               Start Free &mdash; 25 Devices

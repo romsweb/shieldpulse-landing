@@ -11,6 +11,7 @@ interface Plan {
   description: string;
   features: string[];
   cta: string;
+  href: string;
   featured: boolean;
   badge: string | null;
 }
@@ -29,6 +30,7 @@ const plans: Plan[] = [
       '1 user',
     ],
     cta: 'Start Free',
+    href: 'https://app.shieldpulse.io',
     featured: false,
     badge: null,
   },
@@ -48,6 +50,7 @@ const plans: Plan[] = [
       'Email support',
     ],
     cta: 'Start Pro Trial',
+    href: 'https://app.shieldpulse.io?plan=pro',
     featured: false,
     badge: null,
   },
@@ -67,6 +70,7 @@ const plans: Plan[] = [
       '1 year history',
     ],
     cta: 'Start Business Trial',
+    href: 'https://app.shieldpulse.io?plan=business',
     featured: true,
     badge: 'Most Popular',
   },
@@ -195,7 +199,7 @@ export default function Pricing() {
                 </ul>
 
                 <a
-                  href="#"
+                  href={plan.href}
                   className={`block text-center font-medium py-3 rounded-lg transition-all ${
                     plan.featured
                       ? 'bg-accent-green text-bg-primary hover:brightness-110 glow-green'
