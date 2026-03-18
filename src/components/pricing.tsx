@@ -30,6 +30,7 @@ const plans: Plan[] = [
       { text: 'Email alerts' },
       { text: '30 days history' },
       { text: '1 user' },
+      { text: 'Community support' },
     ],
     cta: 'Start Free',
     href: 'https://app.shieldpulse.io',
@@ -65,7 +66,7 @@ const plans: Plan[] = [
       { text: 'Everything in Pro' },
       { text: 'Unlimited users' },
       { text: 'Unlimited history' },
-      { text: 'Priority support' },
+      { text: 'Priority support + direct founder access' },
       { text: 'Custom alert rules', soon: true },
     ],
     cta: 'Start Business Trial',
@@ -170,6 +171,19 @@ export default function Pricing() {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* Early access banner */}
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <span className="inline-block font-mono text-sm text-accent-amber border border-accent-amber/30 bg-accent-amber/5 px-4 py-2 rounded-lg">
+            Early Access — All plans include priority onboarding support
+          </span>
         </motion.div>
 
         {/* Enterprise */}
