@@ -246,6 +246,15 @@ function PricingCalculator() {
   );
 }
 
+const getHrefWithUtm = (baseHref: string) => {
+  if (typeof window === 'undefined') return baseHref;
+  const currentParams = new URLSearchParams(window.location.search);
+  const utmEntries = Array.from(currentParams.entries()).filter(([k]) => k.startsWith('utm_'));
+  if (utmEntries.length === 0) return baseHref;
+  const sep = baseHref.includes('?') ? '&' : '?';
+  return baseHref + sep + new URLSearchParams(utmEntries).toString();
+};
+
 export default function Pricing() {
   return (
     <Section id="pricing" className="bg-bg-primary">
@@ -313,7 +322,12 @@ export default function Pricing() {
                 </ul>
 
                 <a
-                  href={plan.href}
+                  href={getHrefWithUtm(plan.href)}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).fbq) {
+                      (window as any).fbq('track', 'Lead', { content_name: plan.name });
+                    }
+                  }}
                   className={`block text-center font-medium py-3 rounded-lg transition-all ${
                     plan.featured
                       ? 'bg-accent-green text-bg-primary hover:brightness-110 glow-green'

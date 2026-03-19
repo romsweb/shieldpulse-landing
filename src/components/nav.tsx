@@ -9,6 +9,15 @@ const links = [
   { href: '#faq', label: 'FAQ' },
 ];
 
+const getHrefWithUtm = (baseHref: string) => {
+  if (typeof window === 'undefined') return baseHref;
+  const currentParams = new URLSearchParams(window.location.search);
+  const utmEntries = Array.from(currentParams.entries()).filter(([k]) => k.startsWith('utm_'));
+  if (utmEntries.length === 0) return baseHref;
+  const sep = baseHref.includes('?') ? '&' : '?';
+  return baseHref + sep + new URLSearchParams(utmEntries).toString();
+};
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,7 +64,12 @@ export default function Nav() {
             Login
           </a>
           <a
-            href="https://app.shieldpulse.io"
+            href={getHrefWithUtm('https://app.shieldpulse.io')}
+            onClick={() => {
+              if (typeof window !== 'undefined' && (window as any).fbq) {
+                (window as any).fbq('track', 'Lead', { content_name: 'Free' });
+              }
+            }}
             className="text-sm font-medium bg-accent-green text-bg-primary px-4 py-2 rounded-lg glow-green hover:brightness-110 transition-all"
           >
             Start Free &rarr;
@@ -111,9 +125,14 @@ export default function Nav() {
                 Login
               </a>
               <a
-                href="https://app.shieldpulse.io"
+                href={getHrefWithUtm('https://app.shieldpulse.io')}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'Lead', { content_name: 'Free' });
+                  }
+                  setMobileOpen(false);
+                }}
                 className="text-center font-medium bg-accent-green text-bg-primary px-4 py-2 rounded-lg glow-green"
-                onClick={() => setMobileOpen(false)}
               >
                 Start Free &rarr;
               </a>

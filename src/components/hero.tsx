@@ -27,6 +27,15 @@ function AnimatedCounter() {
   return <span>{display}</span>;
 }
 
+const getHrefWithUtm = (baseHref: string) => {
+  if (typeof window === 'undefined') return baseHref;
+  const currentParams = new URLSearchParams(window.location.search);
+  const utmEntries = Array.from(currentParams.entries()).filter(([k]) => k.startsWith('utm_'));
+  if (utmEntries.length === 0) return baseHref;
+  const sep = baseHref.includes('?') ? '&' : '?';
+  return baseHref + sep + new URLSearchParams(utmEntries).toString();
+};
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 bg-grid overflow-hidden">
@@ -74,7 +83,12 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <a
-              href="https://app.shieldpulse.io"
+              href={getHrefWithUtm('https://app.shieldpulse.io')}
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).fbq) {
+                  (window as any).fbq('track', 'Lead', { content_name: 'Free' });
+                }
+              }}
               className="inline-flex items-center gap-2 bg-accent-green text-bg-primary font-semibold px-6 py-3 rounded-lg glow-green hover:brightness-110 transition-all text-base"
             >
               Start Free &mdash; 25 Devices
