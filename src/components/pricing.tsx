@@ -174,7 +174,7 @@ function PricingCalculator() {
       </div>
 
       {/* Comparison table */}
-      <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
         <motion.div
           key={`sp-${devices}`}
           initial={{ opacity: 0.5, scale: 0.98 }}
