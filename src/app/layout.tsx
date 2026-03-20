@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Sentinel by ShieldPulse — AI Backup Monitoring for MSPs',
-    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts, 60% noise reduction.',
+    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts. AI triage cuts alert noise by 60%. Free for 25 devices — no credit card needed.',
     type: 'website',
     url: 'https://shieldpulse.io',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sentinel by ShieldPulse — AI Backup Monitoring for MSPs',
-    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts, 60% noise reduction.',
+    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts. AI triage cuts alert noise by 60%. Free for 25 devices — no credit card needed.',
     images: ['https://shieldpulse.io/og-image.jpg'],
   },
 };
