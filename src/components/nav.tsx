@@ -7,6 +7,7 @@ const links = [
   { href: '#features', label: 'Features' },
   { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 const getHrefWithUtm = (baseHref: string) => {
