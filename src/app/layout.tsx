@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     url: 'https://shieldpulse.io',
     images: [
       {
-        url: 'https://shieldpulse.io/og-image.png',
+        url: 'https://shieldpulse.io/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'ShieldPulse Sentinel — The Backup Dashboard That Should Have Existed',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sentinel by ShieldPulse — AI Backup Monitoring for MSPs',
     description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts, 60% noise reduction.',
-    images: ['https://shieldpulse.io/og-image.png'],
+    images: ['https://shieldpulse.io/og-image.jpg'],
   },
 };
 
