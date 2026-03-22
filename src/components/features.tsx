@@ -50,7 +50,7 @@ const features = [
     icon: '\u{1F4E2}',
     title: 'Team Notifications',
     description: 'Slack, Teams, email, webhook. Route alerts to the right people with the right priority.',
-    badge: 'Coming soon',
+    badge: null,
   },
 ];
 
