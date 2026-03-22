@@ -24,7 +24,7 @@ const plans: Plan[] = [
   {
     name: 'Free',
     monthlyPrice: 0,
-    description: 'Get started with basic monitoring.',
+    description: 'Full monitoring power. Zero cost.',
     features: [
       { text: 'Up to 25 devices' },
       { text: 'Acronis monitoring' },
@@ -43,7 +43,7 @@ const plans: Plan[] = [
   {
     name: 'Pro',
     monthlyPrice: 49,
-    description: 'For growing MSPs that need AI and integrations.',
+    description: 'For growing MSPs that need integrations.',
     features: [
       { text: '100 devices included' },
       { text: '+$0.75/device beyond 100' },
