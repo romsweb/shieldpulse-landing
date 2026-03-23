@@ -81,6 +81,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })(window, document, "clarity", "script", "w0emew51d5");
           `}
         </Script>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-75WT7ZE0W6" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-75WT7ZE0W6');
+          `}
+        </Script>
       </head>
       <body className="antialiased">
         {children}
