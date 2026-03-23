@@ -19,30 +19,41 @@ export default function FinalCta() {
 
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
-          className="font-mono text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-6"
+          className="font-mono text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Your backups deserve better monitoring.
+          Stop scanning dashboards.
         </motion.h2>
 
         <motion.p
-          className="text-lg text-text-secondary mb-10"
+          className="font-mono text-xl sm:text-2xl text-accent-green font-semibold mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.6 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
         >
-          Start with 25 devices free. No credit card. No contract.
+          Start with the 3 problems that actually matter.
+        </motion.p>
+
+        <motion.p
+          className="text-lg text-text-secondary mb-10 max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          ShieldPulse shows you where to act &mdash;
+          before your clients notice the problem.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ delay: 0.35, duration: 0.6 }}
         >
           <a
             href={getHrefWithUtm('https://app.shieldpulse.io')}
@@ -53,7 +64,7 @@ export default function FinalCta() {
             }}
             className="inline-flex items-center gap-2 bg-accent-green text-bg-primary font-bold text-lg px-8 py-4 rounded-xl glow-green hover:brightness-110 transition-all"
           >
-            Start Free &mdash; 25 Devices
+            Start free trial &mdash; no credit card
           </a>
         </motion.div>
 
@@ -62,11 +73,25 @@ export default function FinalCta() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.45, duration: 0.6 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
         >
           Questions?{' '}
           <a href="mailto:contact@shieldpulse.io" className="text-text-secondary hover:text-text-primary underline transition-colors">
             contact@shieldpulse.io
+          </a>
+        </motion.p>
+
+        <motion.p
+          className="mt-12 font-mono text-xs text-text-muted"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
+          Currently supports Acronis Cyber Cloud.
+          Veeam connector arriving Q3 2026 &mdash;{' '}
+          <a href="#veeam-waitlist" className="text-accent-green hover:underline transition-colors">
+            join the waitlist &rarr;
           </a>
         </motion.p>
       </div>

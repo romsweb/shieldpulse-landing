@@ -6,24 +6,31 @@ import Section from './ui/section';
 const painCards = [
   {
     border: 'border-accent-red/40',
-    icon: '$',
-    title: 'Your price just went up. Again.',
+    icon: '>_',
+    title: '20 failures. 50 alerts. 0 idea where to start.',
     description:
-      'Every time a PE firm acquires your backup monitoring tool, the first move is a price hike. 20%, 40%, sometimes double. You have no leverage because migration is painful. They know it.',
-  },
-  {
-    border: 'border-accent-amber/40',
-    icon: '\u{1F512}',
-    title: "Contracts you didn't ask for.",
-    description:
-      'What started as month-to-month is now annual lock-in. Auto-renewals with 60-day cancellation windows. Penalty clauses buried in page 14. Your flexibility is gone.',
+      'You open Acronis at 8am. Everything is red. You spend 40 minutes figuring out what actually matters.',
   },
   {
     border: 'border-accent-red/40',
-    icon: '\u{1F514}',
-    title: 'Alert fatigue is killing your team.',
+    icon: '!',
+    title: 'A client calls before you do.',
     description:
-      '200+ alerts every morning. Most are noise: retries that resolved, temp file warnings, test machines. Your techs spend 45 minutes triaging before real work even starts.',
+      "Their server hasn't backed up in 4 days. You had the alert. It was buried under 80 others.",
+  },
+  {
+    border: 'border-accent-amber/40',
+    icon: '~',
+    title: "You're monitoring the tool, not the risk.",
+    description:
+      'Success rate looks fine. But 12 machines show no_result — which means no backup ran at all.',
+  },
+  {
+    border: 'border-accent-amber/40',
+    icon: '#',
+    title: 'Every MSP dashboard has this problem.',
+    description:
+      "Too much data. No clear priority. You're not missing alerts — you're drowning in them.",
   },
 ];
 
@@ -48,7 +55,7 @@ export default function Problem() {
         </h2>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-6 mb-16"
+          className="grid md:grid-cols-2 gap-6 mb-16"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -60,7 +67,7 @@ export default function Problem() {
               variants={fadeUp}
               className={`bg-bg-surface border ${card.border} rounded-xl p-6 hover:bg-bg-elevated transition-colors`}
             >
-              <span className="text-2xl mb-4 block">{card.icon}</span>
+              <span className="text-2xl mb-4 block font-mono text-accent-green">{card.icon}</span>
               <h3 className="font-mono text-lg font-semibold text-text-primary mb-3">
                 {card.title}
               </h3>

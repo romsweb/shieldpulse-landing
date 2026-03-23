@@ -22,9 +22,9 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: 'Free',
+    name: 'Starter',
     monthlyPrice: 0,
-    description: 'Full monitoring power. Zero cost.',
+    description: '14-day trial — no credit card required.',
     features: [
       { text: 'Up to 25 devices' },
       { text: 'Acronis monitoring' },
@@ -47,7 +47,7 @@ const plans: Plan[] = [
     features: [
       { text: '100 devices included' },
       { text: '+$0.75/device beyond 100' },
-      { text: 'Everything in Free' },
+      { text: 'Everything in Starter' },
       { text: 'Email support' },
       { text: 'Multi-vendor support', soon: true },
     ],
@@ -85,7 +85,7 @@ const plans: Plan[] = [
     cta: 'Start Scale Trial',
     href: 'https://app.shieldpulse.io?plan=scale',
     featured: false,
-    badge: 'Best Value for Growth',
+    badge: null,
   },
 ];
 
@@ -253,11 +253,11 @@ export default function Pricing() {
   return (
     <Section id="pricing" className="bg-bg-primary">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-4">
-          Pricing that respects your intelligence
+        <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-2">
+          No feature gates. You get everything. You just scale.
         </h2>
-        <p className="text-text-secondary text-center mb-8 max-w-2xl mx-auto mb-12">
-          No hidden fees. No annual lock-in. Cancel anytime with one click.
+        <p className="text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+          Because your problems don&apos;t come in tiers.
         </p>
 
         <motion.div
@@ -403,8 +403,11 @@ export default function Pricing() {
 
         <PricingCalculator />
 
-        <p className="text-center text-sm text-text-muted font-mono">
+        <p className="text-center text-sm text-text-muted font-mono mb-4">
           Month-to-month. Always. No activation fees. No setup fees. Cancel anytime.
+        </p>
+        <p className="text-center text-xs text-text-muted font-mono">
+          All plans include: AI triage, health scoring, webhook alerts, machine notes, live activities, and morning digest emails.
         </p>
       </div>
     </Section>

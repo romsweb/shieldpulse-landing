@@ -81,8 +81,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            ShieldPulse surfaces exactly what needs your attention &mdash;
-            before your clients notice the problem.
+            Stop scanning dashboards.
+            <br />
+            Start with what actually matters.
           </motion.p>
 
           <motion.div
@@ -162,7 +163,7 @@ export default function Hero() {
               </div>
               <div className="mt-4 border-t border-border pt-4">
                 <p className="text-terminal-green">
-                  &#10003; All critical issues surfaced. Review time: ~3 min.
+                  &#10003; 3 clients need action now. Others can wait.
                 </p>
               </div>
             </div>
