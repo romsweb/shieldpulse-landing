@@ -51,36 +51,45 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            {'> BUILT BY AN MSP, FOR MSPs'}
+            {'> BACKUP MONITORING FOR MSPs'}
             <span className="animate-blink">_</span>
           </motion.p>
 
           <motion.h1
-            className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-6"
+            className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            The Backup Dashboard
+            127 alerts.
             <br />
-            That Should Have Existed.
+            Only 12 actually matter.
           </motion.h1>
+
+          <motion.p
+            className="font-mono text-xl sm:text-2xl text-accent-green font-semibold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.5 }}
+          >
+            We show you which ones.
+          </motion.p>
 
           <motion.p
             className="text-lg text-text-secondary max-w-xl mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
           >
-            AI-powered backup monitoring that cuts alert noise by 60%.
-            Transparent pricing, no contracts, and built by an MSP — not a PE firm.
+            ShieldPulse surfaces exactly what needs your attention &mdash;
+            before your clients notice the problem.
           </motion.p>
 
           <motion.div
             className="flex flex-wrap gap-4 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
           >
             <a
               href={getHrefWithUtm('https://app.shieldpulse.io')}
@@ -102,12 +111,12 @@ export default function Hero() {
           </motion.div>
 
           <motion.p
-            className="text-sm text-text-muted"
+            className="font-mono text-sm text-text-muted"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.6 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
           >
-            No credit card required. No contracts. Setup takes 5 minutes.
+            Built by an MSP. No PE firm. No vendor lock-in.
           </motion.p>
         </div>
 
