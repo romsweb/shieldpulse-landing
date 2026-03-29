@@ -19,8 +19,8 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
-      from: 'ShieldPulse <noreply@shieldpulse.io>',
+    const result = await resend.emails.send({
+      from: 'ShieldPulse <support@updates.shieldpulse.io>',
       to: NOTIFY_EMAIL,
       subject: `Beta signup: ${firstName} ${lastName} (${machines} machines)`,
       html: `
@@ -33,6 +33,13 @@ export async function POST(req: Request) {
         </table>
       `,
     });
+
+    console.log('Resend result:', JSON.stringify(result));
+
+    if (result.error) {
+      console.error('Resend error:', result.error);
+      return NextResponse.json({ error: result.error.message }, { status: 500 });
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
