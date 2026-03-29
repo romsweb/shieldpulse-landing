@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { betaHref } from '@/lib/beta';
 
 const getHrefWithUtm = (baseHref: string) => {
   if (typeof window === 'undefined') return baseHref;
@@ -56,7 +57,7 @@ export default function FinalCta() {
           transition={{ delay: 0.35, duration: 0.6 }}
         >
           <a
-            href={getHrefWithUtm('https://app.shieldpulse.io')}
+            href={getHrefWithUtm(betaHref('https://app.shieldpulse.io'))}
             onClick={() => {
               if (typeof window !== 'undefined' && (window as any).fbq) {
                 (window as any).fbq('track', 'Lead', { content_name: 'Free' });

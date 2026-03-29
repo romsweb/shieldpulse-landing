@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import type { BlogPost } from '@/lib/blog';
+import { betaHref } from '@/lib/beta';
 
 interface TocItem {
   id: string;
@@ -180,7 +181,7 @@ export default function ArticleLayout({
               included on every plan — no credit card required.
             </p>
             <a
-              href="https://app.shieldpulse.io"
+              href={betaHref('https://app.shieldpulse.io')}
               className="inline-block font-medium bg-accent-green text-bg-primary px-6 py-3 rounded-lg glow-green hover:brightness-110 transition-all"
             >
               Try Sentinel Free &rarr;

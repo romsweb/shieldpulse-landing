@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Section from './ui/section';
+import { betaHref } from '@/lib/beta';
 
 interface Feature {
   text: string;
@@ -316,7 +317,7 @@ export default function Pricing() {
                 </ul>
 
                 <a
-                  href={getHrefWithUtm(plan.href)}
+                  href={getHrefWithUtm(betaHref(plan.href))}
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).fbq) {
                       (window as any).fbq('track', 'Lead', { content_name: plan.name });

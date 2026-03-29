@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { betaHref } from '@/lib/beta';
 
 const links = [
   { href: '#features', label: 'Features' },
@@ -59,13 +60,13 @@ export default function Nav() {
         {/* Desktop CTAs */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="https://app.shieldpulse.io"
+            href={betaHref('https://app.shieldpulse.io')}
             className="text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
             Login
           </a>
           <a
-            href={getHrefWithUtm('https://app.shieldpulse.io')}
+            href={getHrefWithUtm(betaHref('https://app.shieldpulse.io'))}
             onClick={() => {
               if (typeof window !== 'undefined' && (window as any).fbq) {
                 (window as any).fbq('track', 'Lead', { content_name: 'Free' });
@@ -122,11 +123,11 @@ export default function Nav() {
                 </a>
               ))}
               <hr className="border-border" />
-              <a href="https://app.shieldpulse.io" className="text-text-secondary hover:text-text-primary transition-colors">
+              <a href={betaHref('https://app.shieldpulse.io')} className="text-text-secondary hover:text-text-primary transition-colors">
                 Login
               </a>
               <a
-                href={getHrefWithUtm('https://app.shieldpulse.io')}
+                href={getHrefWithUtm(betaHref('https://app.shieldpulse.io'))}
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).fbq) {
                     (window as any).fbq('track', 'Lead', { content_name: 'Free' });
