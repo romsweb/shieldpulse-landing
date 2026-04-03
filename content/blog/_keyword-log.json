@@ -1,10 +1,49 @@
 {
   "covered": [
-    { "keyword": "scalepad alternatives MSP", "slug": "scalepad-alternatives", "title": "Best ScalePad Alternatives for MSPs in 2026", "date": "2026-03-22", "source": "manual" },
-    { "keyword": "MSP backup best practices", "slug": "msp-backup-best-practices-2026", "title": "MSP Backup Best Practices in 2026: Beyond the 3-2-1 Rule", "date": "2026-03-20", "source": "manual" },
-    { "keyword": "what is backup monitoring", "slug": "what-is-backup-monitoring-guide", "title": "What Is Backup Monitoring? A Complete Guide for MSPs (2026)", "date": "2026-03-20", "source": "manual" },
-    { "keyword": "backup alert fatigue MSP", "slug": "backup-alert-fatigue-msp", "title": "Backup Alert Fatigue Is Killing Your MSP: Here's How to Fix It", "date": "2026-03-19", "source": "manual" },
-    { "keyword": "backup radar alternatives", "slug": "backup-radar-alternatives-2026", "title": "Best Backup Radar Alternatives in 2026: Honest Comparison for MSPs", "date": "2026-03-19", "source": "manual" }
+    {
+      "keyword": "scalepad alternatives MSP",
+      "slug": "scalepad-alternatives",
+      "title": "Best ScalePad Alternatives for MSPs in 2026",
+      "date": "2026-03-22",
+      "source": "manual"
+    },
+    {
+      "keyword": "MSP backup best practices",
+      "slug": "msp-backup-best-practices-2026",
+      "title": "MSP Backup Best Practices in 2026: Beyond the 3-2-1 Rule",
+      "date": "2026-03-20",
+      "source": "manual"
+    },
+    {
+      "keyword": "what is backup monitoring",
+      "slug": "what-is-backup-monitoring-guide",
+      "title": "What Is Backup Monitoring? A Complete Guide for MSPs (2026)",
+      "date": "2026-03-20",
+      "source": "manual"
+    },
+    {
+      "keyword": "backup alert fatigue MSP",
+      "slug": "backup-alert-fatigue-msp",
+      "title": "Backup Alert Fatigue Is Killing Your MSP: Here's How to Fix It",
+      "date": "2026-03-19",
+      "source": "manual"
+    },
+    {
+      "keyword": "backup radar alternatives",
+      "slug": "backup-radar-alternatives-2026",
+      "title": "Best Backup Radar Alternatives in 2026: Honest Comparison for MSPs",
+      "date": "2026-03-19",
+      "source": "manual"
+    },
+    {
+      "keyword": "morning backup report MSP",
+      "slug": "morning-backup-report-msp",
+      "title": "How to Build an Effective Morning Backup Report for Your MSP",
+      "date": "2026-04-03",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
+    }
   ],
   "seedKeywords": [
     "backup monitoring MSP",
