@@ -358,7 +358,7 @@ export async function GET(request: NextRequest) {
         const gscUrl = `https://search.google.com/search-console/inspect?resource_id=sc-domain:shieldpulse.io&id=${encodeURIComponent(postUrl)}`;
 
         await resend.emails.send({
-          from: 'blog@shieldpulse.io',
+          from: 'ShieldPulse Blog <support@updates.shieldpulse.io>',
           to: 'contact@shieldpulse.io',
           subject: `New blog post published: ${title}`,
           html: `
