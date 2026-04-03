@@ -61,6 +61,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "MSP client retention backup",
+      "slug": "msp-client-retention-backup",
+      "title": "How Backup Reliability Drives MSP Client Retention Success",
+      "date": "2026-04-03",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
