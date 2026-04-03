@@ -111,18 +111,21 @@ async function githubPut(path: string, content: string, message: string, token: 
 async function fetchKeywordData(keywords: string[], apiKey: string): Promise<KeywordData[]> {
   console.log(`[cron] Fetching keyword data for ${keywords.length} keywords...`);
 
+  const params = new URLSearchParams();
+  params.append('dataSource', 'gkp');
+  params.append('country', 'us');
+  params.append('currency', 'USD');
+  for (const kw of keywords) {
+    params.append('kw[]', kw);
+  }
+
   const res = await fetch('https://api.keywordseverywhere.com/v1/get_keyword_data', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: new URLSearchParams({
-      dataSource: 'gkp',
-      country: 'us',
-      currency: 'USD',
-      kw: JSON.stringify(keywords),
-    }),
+    body: params.toString(),
   });
 
   if (!res.ok) {
