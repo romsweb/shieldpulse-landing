@@ -109,8 +109,9 @@ async function githubPut(path: string, content: string, message: string, token: 
 // ─── Step 1: Keyword Research ────────────────────────────────────────────────
 
 async function fetchKeywordData(keywords: string[], apiKey: string): Promise<KeywordData[]> {
-  console.log(`[cron] Fetching keyword data for ${keywords.length} keywords...`);
+  console.log(`[cron] Fetching keyword data for ${keywords.length} seed keywords...`);
 
+  // Step A: Get volume/difficulty for seed keywords
   const params = new URLSearchParams();
   params.append('dataSource', 'gkp');
   params.append('country', 'us');
@@ -119,57 +120,107 @@ async function fetchKeywordData(keywords: string[], apiKey: string): Promise<Key
     params.append('kw[]', kw);
   }
 
-  const res = await fetch('https://api.keywordseverywhere.com/v1/get_keyword_data', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: params.toString(),
-  });
+  const results: KeywordData[] = [];
 
-  if (!res.ok) {
-    const text = await res.text();
-    console.warn(`[cron] Keywords Everywhere API failed: ${res.status} ${text}`);
-    return [];
+  try {
+    const res = await fetch('https://api.keywordseverywhere.com/v1/get_keyword_data', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data.data) {
+        for (const kw of data.data as any[]) {
+          const entry: KeywordData = {
+            keyword: kw.keyword,
+            volume: kw.vol || 0,
+            cpc: kw.cpc?.value || 0,
+            competition: kw.competition || 0,
+            difficulty: kw.difficulty || kw.seo_difficulty || 0,
+          };
+          results.push(entry);
+          console.log(`[cron]   seed: "${entry.keyword}" vol=${entry.volume} diff=${entry.difficulty} cpc=${entry.cpc}`);
+        }
+      }
+    } else {
+      console.warn(`[cron] Keywords Everywhere get_keyword_data failed: ${res.status} ${await res.text()}`);
+    }
+  } catch (err) {
+    console.warn('[cron] Keywords Everywhere get_keyword_data error:', err instanceof Error ? err.message : err);
   }
 
-  const data = await res.json();
-  if (!data.data) {
-    console.warn('[cron] Keywords Everywhere returned no data:', JSON.stringify(data));
-    return [];
+  // Step B: Get related keywords for top 5 seeds (expands keyword pool)
+  const topSeeds = keywords.slice(0, 5);
+  for (const seed of topSeeds) {
+    try {
+      const relParams = new URLSearchParams();
+      relParams.append('keyword', seed);
+      relParams.append('country', 'us');
+      relParams.append('currency', 'USD');
+
+      const relRes = await fetch('https://api.keywordseverywhere.com/v1/get_related_keywords', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: relParams.toString(),
+      });
+
+      if (relRes.ok) {
+        const relData = await relRes.json();
+        const relKeywords = relData.data?.related_keywords || relData.related_keywords || [];
+        for (const kw of relKeywords as any[]) {
+          const keyword = kw.keyword || kw.kw;
+          if (!keyword) continue;
+          // Skip duplicates
+          if (results.some((r) => r.keyword.toLowerCase() === keyword.toLowerCase())) continue;
+          const entry: KeywordData = {
+            keyword,
+            volume: kw.vol || kw.search_volume || 0,
+            cpc: kw.cpc?.value || kw.cpc || 0,
+            competition: kw.competition || 0,
+            difficulty: kw.difficulty || kw.seo_difficulty || 0,
+          };
+          results.push(entry);
+          console.log(`[cron]   related(${seed}): "${entry.keyword}" vol=${entry.volume} diff=${entry.difficulty}`);
+        }
+      }
+    } catch {
+      // Non-critical — continue with other seeds
+    }
   }
 
-  return (data.data as any[]).map((kw: any) => ({
-    keyword: kw.keyword,
-    volume: kw.vol || 0,
-    cpc: kw.cpc?.value || 0,
-    competition: kw.competition || 0,
-    difficulty: kw.difficulty || kw.seo_difficulty || 0,
-  }));
+  console.log(`[cron] Total keywords collected: ${results.length}`);
+  return results;
 }
 
 function selectBestKeyword(
   keywordData: KeywordData[],
   coveredKeywords: Set<string>,
-  seedKeywords: string[],
 ): { keyword: string; volume: number; difficulty: number } | null {
-  // Filter: volume > 100, difficulty < 40, not already covered
+  // Filter: volume > 10 (B2B niche), difficulty < 60, not already covered
   const candidates = keywordData.filter(
     (kw) =>
-      kw.volume > 100 &&
-      ((kw.difficulty ?? 0) === 0 || (kw.difficulty ?? 0) < 40) &&
+      kw.volume > 10 &&
+      ((kw.difficulty ?? 0) === 0 || (kw.difficulty ?? 0) < 60) &&
       !coveredKeywords.has(kw.keyword.toLowerCase()),
   );
 
-  console.log(`[cron] ${candidates.length} candidates after filtering (of ${keywordData.length} total)`);
+  console.log(`[cron] ${candidates.length} candidates after filtering (vol>10, diff<60, not covered)`);
 
   if (candidates.length === 0) return null;
 
   // Sort by volume descending (highest traffic first)
   candidates.sort((a, b) => b.volume - a.volume);
-  return { keyword: candidates[0].keyword, volume: candidates[0].volume, difficulty: candidates[0].difficulty ?? 0 };
-
+  const best = candidates[0];
+  console.log(`[cron] Best candidate: "${best.keyword}" vol=${best.volume} diff=${best.difficulty ?? 0}`);
+  return { keyword: best.keyword, volume: best.volume, difficulty: best.difficulty ?? 0 };
 }
 
 function pickFallbackKeyword(seedKeywords: string[], coveredKeywords: Set<string>): string {
@@ -291,7 +342,7 @@ export async function GET(request: NextRequest) {
     if (keywordsKey) {
       console.log('[cron] Step 2: Keyword research via Keywords Everywhere...');
       const keywordData = await fetchKeywordData(keywordLog.seedKeywords, keywordsKey);
-      const best = selectBestKeyword(keywordData, coveredKeywords, keywordLog.seedKeywords);
+      const best = selectBestKeyword(keywordData, coveredKeywords);
 
       if (best) {
         chosenKeyword = best.keyword;
