@@ -204,12 +204,16 @@ function selectBestKeyword(
   keywordData: KeywordData[],
   coveredKeywords: Set<string>,
 ): { keyword: string; volume: number; difficulty: number } | null {
+  // Normalize for fuzzy dedup (same function as in main handler)
+  const normalizeKw = (kw: string) => kw.toLowerCase().replace(/\b(msp|guide|best|top|for|the|in|and|vs|a|an)\b/g, '').replace(/\s+/g, ' ').trim();
+
   // Filter: volume > 10 (B2B niche), difficulty < 60, not already covered
   const candidates = keywordData.filter(
     (kw) =>
       kw.volume > 10 &&
       ((kw.difficulty ?? 0) === 0 || (kw.difficulty ?? 0) < 60) &&
-      !coveredKeywords.has(kw.keyword.toLowerCase()),
+      !coveredKeywords.has(kw.keyword.toLowerCase()) &&
+      !coveredKeywords.has(normalizeKw(kw.keyword)),
   );
 
   console.log(`[cron] ${candidates.length} candidates after filtering (vol>10, diff<60, not covered)`);
@@ -331,7 +335,12 @@ export async function GET(request: NextRequest) {
     console.log('[cron] Step 1: Reading keyword log from GitHub...');
     const { content: logRaw, sha: logSha } = await githubGet(KEYWORD_LOG_PATH, githubToken);
     const keywordLog: KeywordLog = JSON.parse(logRaw);
-    const coveredKeywords = new Set(keywordLog.covered.map((c) => c.keyword.toLowerCase()));
+    const coveredSlugs = new Set(keywordLog.covered.map((c) => c.slug));
+    // Normalize keywords for fuzzy dedup: lowercase, remove common stop words
+    const normalizeKw = (kw: string) => kw.toLowerCase().replace(/\b(msp|guide|best|top|for|the|in|and|vs|a|an)\b/g, '').replace(/\s+/g, ' ').trim();
+    const coveredKeywords = new Set(keywordLog.covered.map((c) => normalizeKw(c.keyword)));
+    // Also add raw lowercase for exact match
+    for (const c of keywordLog.covered) coveredKeywords.add(c.keyword.toLowerCase());
     console.log(`[cron] ${keywordLog.covered.length} keywords already covered`);
 
     // ── Step 2: Keyword research ──
@@ -366,10 +375,28 @@ export async function GET(request: NextRequest) {
 
     // ── Step 4: Parse & validate ──
     console.log('[cron] Step 4: Parsing generated content...');
-    const { slug, title, fullContent } = parseGeneratedPost(markdown);
+    let { slug, title, fullContent } = parseGeneratedPost(markdown);
     console.log(`[cron] Article: "${title}" → ${slug}.md`);
 
+    // ── Step 4b: Check slug collision ──
+    if (coveredSlugs.has(slug)) {
+      const year = new Date().getFullYear();
+      slug = `${slug}-${year}`;
+      console.log(`[cron] Slug collision — renamed to: ${slug}`);
+    }
+    // Also check if file exists on GitHub
+    try {
+      const checkRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${BLOG_CONTENT_PATH}/${slug}.md?ref=${GITHUB_BRANCH}`, {
+        headers: { Authorization: `token ${githubToken}`, Accept: 'application/vnd.github.v3+json' },
+      });
+      if (checkRes.ok) {
+        slug = `${slug}-${Date.now().toString(36).slice(-4)}`;
+        console.log(`[cron] File exists on GitHub — renamed to: ${slug}`);
+      }
+    } catch { /* file doesn't exist, proceed */ }
+
     // ── Step 5: Commit post to GitHub ──
+    // Update slug in frontmatter if it was changed
     const postPath = `${BLOG_CONTENT_PATH}/${slug}.md`;
     console.log(`[cron] Step 5: Committing ${postPath} to GitHub...`);
     await githubPut(
