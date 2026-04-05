@@ -79,6 +79,15 @@
       "source": "auto",
       "volume": 20,
       "difficulty": 0
+    },
+    {
+      "keyword": "backup compliance HIPAA",
+      "slug": "backup-compliance-hipaa",
+      "title": "HIPAA Backup Compliance: MSP Guide to Protected Health Data",
+      "date": "2026-04-05",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
