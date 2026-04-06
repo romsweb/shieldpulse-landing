@@ -88,6 +88,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "MSP service delivery backup",
+      "slug": "msp-service-delivery-backup",
+      "title": "MSP Service Delivery: Transform Backup Operations from Reactive to Proactive",
+      "date": "2026-04-06",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
