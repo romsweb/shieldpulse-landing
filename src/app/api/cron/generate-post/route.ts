@@ -29,6 +29,7 @@ STYLE :
 - Structuré : intro accrocheuse basée sur un scénario réel, H2/H3 clairs, paragraphes courts, conclusion actionnable
 - Longueur : 1200-1800 mots
 - CTA subtil en conclusion : mentionner que ShieldPulse (shieldpulse.io) résout ce problème spécifique — une phrase, pas de hard sell
+- Pricing : ShieldPulse propose un essai gratuit de 21 jours (sans carte bancaire). Plans : Pro $49, Business $149, Scale $299. Pas de plan gratuit — ne jamais mentionner "free tier" ou "free for 25 devices"
 - Inclure le keyword principal naturellement dans le titre, l'intro, un H2, et la conclusion — jamais de keyword stuffing
 - Langue : anglais
 
