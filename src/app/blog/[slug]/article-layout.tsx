@@ -177,14 +177,13 @@ export default function ArticleLayout({
               Ready to eliminate alert fatigue?
             </h3>
             <p className="text-text-secondary mb-6 max-w-lg mx-auto">
-              Try Sentinel free for up to 5 devices. AI Triage and Health Score
-              included on every plan — no credit card required.
+              Try Sentinel free for 21 days. Full access, no credit card required.
             </p>
             <a
               href={betaHref('https://app.shieldpulse.io')}
               className="inline-block font-medium bg-accent-green text-bg-primary px-6 py-3 rounded-lg glow-green hover:brightness-110 transition-all"
             >
-              Try Sentinel Free &rarr;
+              Start 21-day trial &rarr;
             </a>
           </div>
         </div>

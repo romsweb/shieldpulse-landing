@@ -159,16 +159,31 @@ export default function TermsPage() {
 
           <section>
             <h2 className="font-mono text-xl font-semibold text-text-primary mb-4">
-              5. Free Tier
+              5. Free Trial
             </h2>
             <p>
-              Sentinel offers a free tier limited to{' '}
-              <span className="text-text-primary font-medium">25 monitored devices</span>. The free
-              tier includes core monitoring features but may not include all features available on
-              paid plans (e.g., AI Triage, advanced reporting). We reserve the right to modify free
-              tier limits or features with 30 days&apos; notice. The free tier does not include any
-              uptime SLA guarantee.
+              Sentinel offers a{' '}
+              <span className="text-text-primary font-medium">21-day free trial</span> starting
+              from the date of account creation. No credit card is required to start the trial.
+              During the trial period, you have full access to all features available on paid plans.
             </p>
+            <ul className="list-disc list-inside space-y-2 mt-4">
+              <li>
+                After the 21-day trial period, your account is{' '}
+                <span className="text-text-primary font-medium">paused</span>, not deleted. Your
+                data is preserved.
+              </li>
+              <li>
+                You may subscribe to any paid plan at any time to resume access.
+              </li>
+              <li>
+                We reserve the right to modify the trial duration or terms with{' '}
+                <span className="text-text-primary font-medium">30 days&apos; notice</span>.
+              </li>
+              <li>
+                The trial does not include any uptime SLA guarantee.
+              </li>
+            </ul>
           </section>
 
           <section>
@@ -179,7 +194,7 @@ export default function TermsPage() {
               We target{' '}
               <span className="text-text-primary font-medium">99.9% uptime</span> for paid plans.
               This target is a goal, not a contractual guarantee. We do not offer Service Level
-              Agreements (SLAs) with financial credits at this time. The free tier is provided
+              Agreements (SLAs) with financial credits at this time. The trial period is provided
               as-is with no uptime commitment. We will make commercially reasonable efforts to
               provide advance notice of planned maintenance.
             </p>

@@ -60,12 +60,12 @@ export default function FinalCta() {
             href={getHrefWithUtm(betaHref('https://app.shieldpulse.io'))}
             onClick={() => {
               if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'Lead', { content_name: 'Free' });
+                (window as any).fbq('track', 'Lead', { content_name: 'Trial' });
               }
             }}
             className="inline-flex items-center gap-2 bg-accent-green text-bg-primary font-bold text-lg px-8 py-4 rounded-xl glow-green hover:brightness-110 transition-all"
           >
-            Start free trial &mdash; no credit card
+            Start 21-day trial &mdash; no credit card
           </a>
         </motion.div>
 

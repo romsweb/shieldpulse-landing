@@ -274,7 +274,7 @@ Based on your scale:
 - **30-100 clients:** Automated monitoring becomes essential. The time savings alone justify the investment.
 - **100+ clients:** You need a purpose-built backup monitoring platform with multi-vendor support, intelligent alerting, and PSA integration.
 
-If you're exploring automated options, Sentinel offers a free tier for up to 25 devices — enough to validate the approach with your most critical clients before committing. See how it compares to other tools in our [backup monitoring alternatives guide](/blog/backup-radar-alternatives-2026).
+If you're exploring automated options, Sentinel offers a 21-day free trial with full access — no credit card required. Enough time to validate the approach with your most critical clients before committing. See how it compares to other tools in our [backup monitoring alternatives guide](/blog/backup-radar-alternatives-2026).
 
 ### Step 4: Set Up Alert Routing
 
@@ -315,7 +315,7 @@ Checking backup logs is a manual, reactive process — you look at what happened
 
 ### What does backup monitoring cost for MSPs?
 
-Costs vary widely depending on the tool and your scale. Some platforms charge per device, per agent, or per client. Many offer free tiers for small environments — for example, Sentinel covers up to 25 devices at no cost. For larger deployments, expect $2-5 per device per month. The ROI math is straightforward: if a single unmonitored backup failure costs you one lost client ($1,000-5,000+/month in recurring revenue), the monitoring tool pays for itself instantly.
+Costs vary widely depending on the tool and your scale. Some platforms charge per device, per agent, or per client. Many offer free trials — for example, Sentinel offers a 21-day free trial with full access, no credit card required. For larger deployments, expect $2-5 per device per month. The ROI math is straightforward: if a single unmonitored backup failure costs you one lost client ($1,000-5,000+/month in recurring revenue), the monitoring tool pays for itself instantly.
 
 ### Can I use my RMM for backup monitoring instead of a dedicated tool?
 
@@ -351,7 +351,7 @@ Continuously. Automated backup monitoring should run 24/7, checking job statuses
       "name": "What does backup monitoring cost for MSPs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Costs vary widely depending on the tool and your scale. Some platforms charge per device, per agent, or per client. Many offer free tiers for small environments — for example, Sentinel covers up to 25 devices at no cost. For larger deployments, expect $2-5 per device per month."
+        "text": "Costs vary widely depending on the tool and your scale. Some platforms charge per device, per agent, or per client. Many offer free trials — for example, Sentinel offers a 21-day free trial with full access, no credit card required. For larger deployments, expect $2-5 per device per month."
       }
     },
     {

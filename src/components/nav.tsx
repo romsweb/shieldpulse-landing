@@ -69,12 +69,12 @@ export default function Nav() {
             href={getHrefWithUtm(betaHref('https://app.shieldpulse.io'))}
             onClick={() => {
               if (typeof window !== 'undefined' && (window as any).fbq) {
-                (window as any).fbq('track', 'Lead', { content_name: 'Free' });
+                (window as any).fbq('track', 'Lead', { content_name: 'Trial' });
               }
             }}
             className="text-sm font-medium bg-accent-green text-bg-primary px-4 py-2 rounded-lg glow-green hover:brightness-110 transition-all"
           >
-            Start Free &rarr;
+            Start 21-day trial &rarr;
           </a>
         </div>
 
@@ -130,13 +130,13 @@ export default function Nav() {
                 href={getHrefWithUtm(betaHref('https://app.shieldpulse.io'))}
                 onClick={() => {
                   if (typeof window !== 'undefined' && (window as any).fbq) {
-                    (window as any).fbq('track', 'Lead', { content_name: 'Free' });
+                    (window as any).fbq('track', 'Lead', { content_name: 'Trial' });
                   }
                   setMobileOpen(false);
                 }}
                 className="text-center font-medium bg-accent-green text-bg-primary px-4 py-2 rounded-lg glow-green"
               >
-                Start Free &rarr;
+                Start 21-day trial &rarr;
               </a>
             </div>
           </motion.div>

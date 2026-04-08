@@ -18,7 +18,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Sentinel by ShieldPulse — AI Backup Monitoring for MSPs',
-  description: 'AI-powered backup monitoring built by an MSP. Replaces Backup Radar with transparent pricing, no contracts, and alert triage that cuts noise by 60%. Free for 25 devices.',
+  description: 'AI-powered backup monitoring built by an MSP. Replaces Backup Radar with transparent pricing, no contracts, and alert triage that cuts noise by 60%. 21-day free trial, no credit card.',
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Sentinel by ShieldPulse — AI Backup Monitoring for MSPs',
-    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts. AI triage cuts alert noise by 60%. Free for 25 devices — no credit card needed.',
+    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts. AI triage cuts alert noise by 60%. 21-day free trial — no credit card needed.',
     type: 'website',
     url: 'https://shieldpulse.io',
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sentinel by ShieldPulse — AI Backup Monitoring for MSPs',
-    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts. AI triage cuts alert noise by 60%. Free for 25 devices — no credit card needed.',
+    description: 'AI-powered backup monitoring built by an MSP. Transparent pricing, no contracts. AI triage cuts alert noise by 60%. 21-day free trial — no credit card needed.',
     images: ['https://shieldpulse.io/og-image.jpg'],
   },
 };

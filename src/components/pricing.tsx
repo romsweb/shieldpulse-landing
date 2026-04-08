@@ -23,36 +23,22 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: 'Starter',
-    monthlyPrice: 0,
-    description: '14-day trial — no credit card required.',
-    features: [
-      { text: 'Up to 25 devices' },
-      { text: 'Acronis monitoring' },
-      { text: 'AI alert triage' },
-      { text: 'Alerts (Teams / Slack / Webhook)' },
-      { text: 'Email alerts' },
-      { text: '365 days history' },
-      { text: 'Unlimited users' },
-      { text: 'Community support' },
-    ],
-    cta: 'Start Free',
-    href: 'https://app.shieldpulse.io',
-    featured: false,
-    badge: null,
-  },
-  {
     name: 'Pro',
     monthlyPrice: 49,
     description: 'For growing MSPs that need integrations.',
     features: [
       { text: '100 devices included' },
       { text: '+$0.75/device beyond 100' },
-      { text: 'Everything in Starter' },
+      { text: 'Acronis monitoring' },
+      { text: 'AI alert triage' },
+      { text: 'Alerts (Teams / Slack / Webhook)' },
+      { text: 'Email alerts' },
+      { text: '365 days history' },
+      { text: 'Unlimited users' },
       { text: 'Email support' },
       { text: 'Multi-vendor support', soon: true },
     ],
-    cta: 'Start Pro Trial',
+    cta: 'Start 21-day trial',
     href: 'https://app.shieldpulse.io?plan=pro',
     featured: false,
     badge: null,
@@ -67,7 +53,7 @@ const plans: Plan[] = [
       { text: 'Everything in Pro' },
       { text: 'Priority support' },
     ],
-    cta: 'Start Business Trial',
+    cta: 'Start 21-day trial',
     href: 'https://app.shieldpulse.io?plan=business',
     featured: true,
     badge: 'Most Popular',
@@ -83,7 +69,7 @@ const plans: Plan[] = [
       { text: 'Direct founder access' },
       { text: 'Custom alert rules', soon: true },
     ],
-    cta: 'Start Scale Trial',
+    cta: 'Start 21-day trial',
     href: 'https://app.shieldpulse.io?plan=scale',
     featured: false,
     badge: null,
@@ -107,7 +93,6 @@ function formatPrice(price: number): string {
 }
 
 function calculateShieldPulsePrice(devices: number): { price: number; plan: string } {
-  if (devices <= 25) return { price: 0, plan: 'Free' };
   if (devices <= 100) return { price: 49, plan: 'Pro' };
   if (devices <= 250) {
     const proPrice = 49 + (devices - 100) * 0.75;
@@ -262,7 +247,19 @@ export default function Pricing() {
         </p>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="inline-block font-mono text-base text-accent-green border border-accent-green/30 bg-accent-green/5 px-6 py-3 rounded-lg">
+            21-day free trial. No credit card. Full access.
+          </span>
+        </motion.div>
+
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
           variants={stagger}
           initial="hidden"
           whileInView="visible"

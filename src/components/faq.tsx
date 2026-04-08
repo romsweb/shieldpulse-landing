@@ -36,14 +36,14 @@ const faqs = [
       'A full REST API is on our roadmap and actively in development. It will expose everything the dashboard does: device status, alert history, triage results, and configuration. Early access will be available to Pro and Business customers.',
   },
   {
-    question: 'What happens if I exceed the free tier?',
+    question: 'Is there a free trial?',
     answer:
-      'You\u2019ll get a notification when you\u2019re approaching 25 devices. If you go over, monitoring continues uninterrupted \u2014 we\u2019ll never cut you off. You\u2019ll just be prompted to upgrade to Pro. No surprise charges, no retroactive billing.',
+      'Yes \u2014 21 days, full access, no credit card required. After the trial, pick any paid plan or your account pauses. Your data is preserved.',
   },
   {
     question: 'What about vendors you don\u2019t support yet?',
     answer:
-      'If you\u2019re using a vendor we don\u2019t support yet, sign up for the free tier with Acronis and let us know what else you need. We prioritize connector development based on customer demand. The architecture is designed to add new vendors quickly.',
+      'If you\u2019re using a vendor we don\u2019t support yet, start a trial with Acronis and let us know what else you need. We prioritize connector development based on customer demand. The architecture is designed to add new vendors quickly.',
   },
 ];
 

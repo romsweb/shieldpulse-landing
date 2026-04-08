@@ -47,13 +47,12 @@ I evaluated three serious Backup Radar alternatives, each with a different philo
 
 | Feature | Backup Radar | Bocada Cloud | CheckCentral | Sentinel |
 |---------|:------------:|:------------:|:------------:|:--------:|
-| **Starting Price** | $99/mo | Free / $0.75/device | ~$0.50/check | Free |
+| **Starting Price** | $99/mo | Free / $0.75/device | ~$0.50/check | $49/mo |
 | **Mid-Tier** | $199/mo (100 devices) | $1.00/device (Pro) | Scales linearly | $99/mo |
 | **High-Tier** | $649/mo (1,000 devices) | $1.50/device (Ultimate) | Bulk discounts at 1,000+ | $299/mo |
 | **Activation Fee** | $495 | $0 | $0 | $0 |
 | **Minimum Commitment** | 12 months | None | None | None |
-| **Free Tier** | No | Yes (1 org, 3 users) | No | Yes (5 devices) |
-| **Free Trial** | No | 30 days | Yes | Yes |
+| **Free Trial** | No | 30 days | Yes | 21 days (no credit card) |
 
 Let's do the math for a 250-device MSP:
 
@@ -166,7 +165,7 @@ Full disclosure: we built [Sentinel](https://shieldpulse.io). I'm not going to p
 
 ### What It Does Well
 
-**AI Triage on every plan — including Free.** This is the hill we die on. Every MSP deserves intelligent alert processing, not just the ones who can afford $1.50/device. Sentinel's AI Triage understands context: is this a real failure, a scheduled maintenance window, a transient error that will auto-resolve? It classifies and prioritizes before you ever see the alert.
+**AI Triage on every plan.** This is the hill we die on. Every MSP deserves intelligent alert processing, not just the ones who can afford $1.50/device. Sentinel's AI Triage understands context: is this a real failure, a scheduled maintenance window, a transient error that will auto-resolve? It classifies and prioritizes before you ever see the alert.
 
 **Health Score gives you the big picture.** Instead of drilling into 200 individual backup jobs every morning, you see a single score per client. Green means "sleep well." Yellow means "check when you can." Red means "act now." It's the metric your morning coffee check actually needs.
 
@@ -174,16 +173,15 @@ Full disclosure: we built [Sentinel](https://shieldpulse.io). I'm not going to p
 
 **Morning Digest.** One email, every morning, with only the actions you need to take. Not 200 "success" confirmations. Not 50 "FYI" notices. Just: "3 things need your attention today. Here they are."
 
-**No activation fee. No commitment. Free tier.** Start monitoring 5 devices for free. Upgrade when you're ready. Cancel when you want. We believe the product should earn your money every month.
+**No activation fee. No commitment. 21-day trial.** Start with a free trial — no credit card required. Upgrade when you're ready. Cancel when you want. We believe the product should earn your money every month.
 
 **Pricing that respects MSP margins:**
 
 | Plan | Price | Devices | AI Triage | Health Score |
 |------|-------|---------|:---------:|:------------:|
-| **Free** | $0/mo | 5 | ✅ | ✅ |
-| **Starter** | $29/mo | 25 | ✅ | ✅ |
-| **Pro** | $99/mo | 100 | ✅ | ✅ |
-| **Business** | $299/mo | 500 | ✅ | ✅ |
+| **Pro** | $49/mo | 100 | ✅ | ✅ |
+| **Business** | $149/mo | 500 | ✅ | ✅ |
+| **Scale** | $299/mo | 1,000 | ✅ | ✅ |
 
 ### Where It Falls Short (Honesty Time)
 
@@ -239,7 +237,7 @@ Choosing a Backup Radar alternative isn't about finding "the best" tool. It's ab
 | **Morning Digest** | ❌ | Scheduled reports | ❌ | ✅ |
 | **PSA Direct** | ✅ 7 PSAs | Pro+ | ✅ 25+ | 🔜 Coming |
 | **API Connections** | ✅ + email | ✅ | Email only | ✅ API |
-| **Free Tier** | ❌ | ✅ (limited) | ❌ | ✅ (5 devices) |
+| **Free Trial** | ❌ | ✅ (limited) | ❌ | 21 days (no credit card) |
 | **Activation Fee** | $495 | $0 | $0 | $0 |
 | **Contract** | 12 months | Monthly | Monthly | Monthly |
 | **Anomaly Detection** | ❌ | Ultimate only | ❌ | ✅ |
@@ -260,7 +258,7 @@ Yes, but only on Pro ($1/device) and above. Mixed Backup Analysis is available o
 
 ### What's the cheapest Backup Radar alternative?
 
-CheckCentral at $0.50/check is the cheapest paid option. [Sentinel's free tier](https://shieldpulse.io) (5 devices with full AI Triage) is the cheapest option overall. Bocada also offers a free tier with unlimited devices for a single organization. The "cheapest" depends on your device count and feature requirements.
+CheckCentral at $0.50/check is the cheapest paid option. [Sentinel](https://shieldpulse.io) offers a 21-day free trial with full access (no credit card) — the lowest barrier to entry. Bocada also offers a free tier with unlimited devices for a single organization. The "cheapest" depends on your device count and feature requirements.
 
 ### Should I switch from Backup Radar to Sentinel?
 
@@ -276,6 +274,6 @@ Backup Radar built the category. They deserve credit for that. But the category 
 
 We built [Sentinel](https://shieldpulse.io) because we were tired of wading through false positive floods at 6 AM. We're not the most complete solution yet — we're honest about that. But we believe AI Triage should be available to every MSP, not just the ones who can afford enterprise pricing.
 
-Try the [free tier](https://shieldpulse.io). See if smarter alerts change your mornings.
+Try the [21-day free trial](https://shieldpulse.io). See if smarter alerts change your mornings.
 
 *Have questions? Want to see Sentinel in action? [Book a demo](https://shieldpulse.io) or drop us a line — we're MSPs too, and we speak your language.*

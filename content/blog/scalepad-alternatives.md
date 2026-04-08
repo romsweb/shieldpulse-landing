@@ -42,13 +42,13 @@ If you're specifically looking to replace **backup monitoring** (Backup Radar), 
 |---|---|
 | **Integration** | Acronis API-native (direct, not email parsing) |
 | **Alert Triage** | AI-powered — 12 heuristics + Claude AI for edge cases |
-| **Pricing** | Free (25 machines) / $49 (100) / $149 (500) / $299 (2000). No contracts. |
+| **Pricing** | $49 (100) / $149 (500) / $299 (2000). 21-day free trial, no credit card. No contracts. |
 | **Unique** | Health Scores, DC outage correlation, new machine detection, audit trail |
 | **Limitation** | Acronis-only (multi-vendor on roadmap) |
 
 Built by an MSP operator who ran Backup Radar for years and got tired of the pricing games and alert noise. API-first approach means no email parsing failures. The AI triage system understands that maintenance windows, weekend schedules, and DC outages aren't emergencies.
 
-**Try free:** [shieldpulse.io](https://shieldpulse.io?utm_source=alternatives&utm_medium=scalepad&utm_campaign=seo)
+**Try 21-day trial:** [shieldpulse.io](https://shieldpulse.io?utm_source=alternatives&utm_medium=scalepad&utm_campaign=seo)
 
 ### 2. CheckCentral
 
@@ -124,9 +124,9 @@ Several MSPs on r/msp have built internal monitoring scripts. Viable if you have
 
 ## Quick Comparison Table
 
-| Tool | Multi-Vendor | AI Triage | Free Tier | PSA | Price/100 machines |
+| Tool | Multi-Vendor | AI Triage | Free Trial | PSA | Price/100 machines |
 |------|-------------|-----------|-----------|-----|-------------------|
-| **Sentinel** | Acronis only | ✅ | ✅ 25 machines | ❌ | $49/mo |
+| **Sentinel** | Acronis only | ✅ | 21 days (no credit card) | ❌ | $49/mo |
 | **CheckCentral** | ✅ (email) | ❌ | ❌ | ❌ | ~$50-100/mo |
 | **Bocada** | ✅ | ❌ | ❌ | ❌ | ~$75-150/mo |
 | **AlertCentric** | ✅ (email) | ❌ | ❌ | ❌ | ~$149-299 flat |
