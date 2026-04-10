@@ -124,6 +124,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "backup monitoring checklist daily",
+      "slug": "backup-monitoring-checklist-daily",
+      "title": "Daily Backup Monitoring Checklist for MSPs: Beyond Status Reports",
+      "date": "2026-04-10",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
