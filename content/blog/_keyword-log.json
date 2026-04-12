@@ -142,6 +142,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "MSP backup automation",
+      "slug": "msp-backup-automation",
+      "title": "MSP Backup Automation: Stop Losing Clients to Silent Failures",
+      "date": "2026-04-12",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
