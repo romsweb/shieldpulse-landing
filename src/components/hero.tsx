@@ -56,16 +56,13 @@ export default function Hero() {
             <span className="animate-blink">_</span>
           </motion.p>
 
-          <motion.h1
+          <h1
             className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
           >
             127 alerts.
             <br />
             Only 12 actually matter.
-          </motion.h1>
+          </h1>
 
           <motion.p
             className="font-mono text-xl sm:text-2xl text-accent-green font-semibold mb-6"

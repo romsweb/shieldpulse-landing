@@ -53,7 +53,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${jetbrains.variable} ${inter.variable}`}>
       <head>
-        <Script id="meta-pixel" strategy="afterInteractive">
+        <link rel="preconnect" href="https://scripts.clarity.ms" />
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -72,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             src="https://www.facebook.com/tr?id=1204393994861210&ev=PageView&noscript=1"
           />
         </noscript>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

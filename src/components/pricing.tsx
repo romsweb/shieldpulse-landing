@@ -140,6 +140,7 @@ function PricingCalculator() {
             max={2000}
             value={devices}
             onChange={(e) => setDevices(Number(e.target.value))}
+            aria-label="Number of devices"
             className="w-full h-2 bg-border rounded-lg appearance-none cursor-pointer accent-accent-green"
           />
           <input
@@ -148,6 +149,7 @@ function PricingCalculator() {
             max={10000}
             value={devices}
             onChange={(e) => setDevices(Math.max(1, Number(e.target.value) || 1))}
+            aria-label="Number of devices"
             className="w-24 bg-bg-primary border border-border rounded-lg px-3 py-2 text-center font-mono text-text-primary text-sm focus:outline-none focus:border-accent-green"
           />
         </div>
