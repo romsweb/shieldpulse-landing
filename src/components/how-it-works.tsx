@@ -106,13 +106,13 @@ const steps = [
   {
     number: '02',
     title: 'Monitor',
-    description: 'One dashboard for every data center. Real-time backup status, AI-powered triage that separates signal from noise. See only what matters.',
+    description: 'One dashboard for every data center. Real-time backup status, AI-powered triage that filters out the alerts that resolve themselves. See only what matters.',
     visual: null,
   },
   {
     number: '03',
     title: 'Relax',
-    description: 'Your morning review goes from 45 minutes to 3. AI handles the noise. You handle the exceptions. Your techs get their mornings back.',
+    description: 'Your morning review goes from 45 minutes to 3. The AI clears the noise so techs only see the exceptions worth their time.',
     visual: null,
   },
 ];
@@ -130,7 +130,7 @@ export default function HowItWorks() {
           From zero to monitoring in 5 minutes.
         </h2>
         <p className="text-text-secondary text-center mb-16 max-w-2xl mx-auto">
-          No sales calls. No onboarding meetings. Connect, configure, done.
+          No sales call required, no onboarding meeting to book. Connect your tenant, configure alerts, you&apos;re monitoring.
         </p>
 
         <div className="relative">

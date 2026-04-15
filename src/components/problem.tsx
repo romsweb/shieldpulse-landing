@@ -30,7 +30,7 @@ const painCards = [
     icon: '#',
     title: 'Every MSP dashboard has this problem.',
     description:
-      "Too much data. No clear priority. You're not missing alerts — you're drowning in them.",
+      "There's too much data and no obvious priority. The alerts are all there. You just can't find the ones that matter.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function Problem() {
     <Section id="problem" className="bg-bg-primary">
       <div className="max-w-5xl mx-auto">
         <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-16">
-          Sound familiar?
+          What a Monday morning looks like in most MSPs.
         </h2>
 
         <motion.div

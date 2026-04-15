@@ -6,7 +6,7 @@ import Section from './ui/section';
 const rows = [
   {
     label: 'Getting to one alert',
-    acronis: 'Partner → client list → sub-clients → Monitoring → Operations → click donut → popup (wrong clients) → Go to customer → new console loads → find alert again → 2x back to return. 12 steps. Every. Single. Alert.',
+    acronis: 'Partner → client list → sub-clients → Monitoring → Operations → click donut → popup (wrong clients) → Go to customer → new console loads → find alert again → 2x back to return. 12 steps, repeated for every single alert.',
     shieldpulse: 'Open dashboard. Critical issues are already on top. Click once to investigate.',
     longAcronis: true,
   },
@@ -23,7 +23,7 @@ const rows = [
   {
     label: 'Silent failures',
     acronis: 'Success rate looks fine. Agents go dark silently. no_result machines are invisible.',
-    shieldpulse: 'Health score penalizes machines with no backup activity — not just failures. Nothing hides.',
+    shieldpulse: 'Health score penalizes machines with no backup activity — not just failures, so silent agents show up too.',
   },
   {
     label: 'Multi-partner visibility',
@@ -146,7 +146,7 @@ export default function Comparison() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          * Acronis Cyber Protect Cloud is a powerful backup platform.
+          * Acronis Cyber Protect Cloud is a complete backup platform.
           ShieldPulse monitors it — not replaces it.
           We&apos;re an Acronis Platinum Partner.
         </motion.p>

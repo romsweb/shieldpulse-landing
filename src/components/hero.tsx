@@ -79,9 +79,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            Stop scanning dashboards.
+            Your morning Acronis review takes 45 minutes.
             <br />
-            Start with what actually matters.
+            With Sentinel it takes 3.
           </motion.p>
 
           <motion.div
@@ -115,7 +115,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.6 }}
           >
-            Built by an MSP. No PE firm. No vendor lock-in.
+            Built by an MSP who still runs one. No private equity behind us.
           </motion.p>
         </div>
 

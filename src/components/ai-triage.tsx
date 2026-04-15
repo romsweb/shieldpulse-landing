@@ -56,7 +56,7 @@ export default function AiTriage() {
           <span className="text-terminal-green">12 of them matter.</span>
         </h2>
         <p className="text-text-secondary text-center mb-16 max-w-2xl mx-auto">
-          Sentinel&apos;s AI triage engine separates signal from noise so your team focuses on real problems.
+          Sentinel&apos;s AI triage engine removes the alerts that don&apos;t need a human so your team focuses on real problems.
         </p>
 
         {/* Before / After */}

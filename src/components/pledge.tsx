@@ -33,7 +33,6 @@ export default function Pledge() {
               I built Sentinel because I needed it for my own operations.
             </p>
             <p>
-              This isn&apos;t a side project by a dev who read about MSPs on Reddit.
               I live this every day. Every feature exists because I hit the problem first.
             </p>
             <p>

@@ -7,7 +7,7 @@ const blocks = [
   {
     prefix: '>_',
     headline: 'Start here',
-    body: "Every morning, ShieldPulse surfaces the 3 tenant clusters that need your attention. Not a list of alerts — a prioritized action queue.",
+    body: "Every morning, ShieldPulse surfaces the 3 tenant clusters that need your attention. It's a prioritized action queue, not a list of alerts.",
     accent: 'border-accent-green/50',
   },
   {
@@ -39,10 +39,10 @@ export default function Features() {
     <Section id="features" className="bg-bg-primary">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-2">
-          We don&apos;t give you more data.
+          Sentinel surfaces the 3 things that need action today.
         </h2>
         <p className="font-mono text-xl sm:text-2xl text-accent-green font-semibold text-center mb-16">
-          We show you where to look.
+
         </p>
 
         <motion.div

@@ -242,11 +242,9 @@ export default function Pricing() {
     <Section id="pricing" className="bg-bg-primary">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-mono text-3xl sm:text-4xl font-bold text-text-primary text-center mb-2">
-          No feature gates. You get everything. You just scale.
+          Every plan includes every feature. You scale by device count, not by capability.
         </h2>
-        <p className="text-text-secondary text-center mb-12 max-w-2xl mx-auto">
-          Because your problems don&apos;t come in tiers.
-        </p>
+        <div className="mb-12" />
 
         <motion.div
           className="text-center mb-10"
@@ -404,7 +402,7 @@ export default function Pricing() {
         <PricingCalculator />
 
         <p className="text-center text-sm text-text-muted font-mono mb-4">
-          Month-to-month. Always. No activation fees. No setup fees. Cancel anytime.
+          Month-to-month billing with no setup or activation fees. Cancel anytime.
         </p>
         <p className="text-center text-xs text-text-muted font-mono">
           All plans include: AI triage, health scoring, webhook alerts, machine notes, live activities, and morning digest emails.

@@ -26,7 +26,7 @@ export default function FinalCta() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Stop scanning dashboards.
+          See your 3 priority clients before they call you.
         </motion.h2>
 
         <motion.p
@@ -36,7 +36,6 @@ export default function FinalCta() {
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.5 }}
         >
-          Start with the 3 problems that actually matter.
         </motion.p>
 
         <motion.p
@@ -90,7 +89,7 @@ export default function FinalCta() {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           Currently supports Acronis Cyber Cloud.
-          Veeam connector arriving Q3 2026 &mdash;{' '}
+          Veeam connector arriving Q3 2026.{' '}
           <a href="#veeam-waitlist" className="text-accent-green hover:underline transition-colors">
             join the waitlist &rarr;
           </a>
