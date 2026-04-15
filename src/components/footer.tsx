@@ -27,9 +27,6 @@ const columns = [
   {
     title: 'Connect',
     links: [
-      { label: 'X / Twitter', href: 'https://x.com/shieldpulse' },
-      { label: 'Discord', href: '#' },
-      { label: 'GitHub', href: 'https://github.com/shieldpulse' },
       { label: 'Email', href: 'mailto:contact@shieldpulse.io' },
     ],
   },
