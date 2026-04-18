@@ -196,6 +196,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "backup verification automation",
+      "slug": "backup-verification-automation",
+      "title": "MSP Backup Verification Automation: End Manual Checks",
+      "date": "2026-04-18",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
