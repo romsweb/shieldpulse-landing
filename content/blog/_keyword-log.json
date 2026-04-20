@@ -241,6 +241,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "backup SLA compliance",
+      "slug": "backup-sla-compliance",
+      "title": "MSP Guide to Achieving Perfect Backup SLA Compliance",
+      "date": "2026-04-20",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
