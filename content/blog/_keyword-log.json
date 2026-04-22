@@ -250,6 +250,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "RTO RPO MSP best practices",
+      "slug": "rto-rpo-msp-best-practices",
+      "title": "RTO RPO MSP Best Practices: Building Bulletproof SLAs",
+      "date": "2026-04-22",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
