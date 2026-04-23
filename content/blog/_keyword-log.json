@@ -259,6 +259,15 @@
       "source": "auto",
       "volume": 0,
       "difficulty": 0
+    },
+    {
+      "keyword": "MSP backup failure detection",
+      "slug": "msp-backup-failure-detection",
+      "title": "MSP Backup Failure Detection: Stop Missing Critical Failures",
+      "date": "2026-04-23",
+      "source": "auto",
+      "volume": 0,
+      "difficulty": 0
     }
   ],
   "seedKeywords": [
