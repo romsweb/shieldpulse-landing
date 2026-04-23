@@ -1,7 +1,7 @@
-# ShieldPulse.io — Brand System v2
+# ShieldPulse.io — Brand System v2.1
 
 > Reference document for consistent content creation across all channels and AI tools.
-> **Version 2 — April 2026.** Updated post-K7: accent color realigned, Veeam status calibrated, secondary palette extended, email templates added, icon/emoji conventions formalized, humanizer skill integration.
+> **Version 2.1 — April 2026.** Fixed email sender vs reply-to guidance. Previous v2 corrections: accent color realigned, Veeam status calibrated, secondary palette extended, email templates added, icon/emoji conventions formalized, humanizer skill integration.
 
 ---
 
@@ -302,7 +302,7 @@ Every transactional email starts here. Replace `[CONTENT]` with the body compone
           <tr>
             <td style="padding: 24px 40px; border-top: 1px solid #1E2B22; font-size: 13px; color: #8B9A8F;">
               <p style="margin: 0 0 8px 0;">ShieldPulse — shieldpulse.io</p>
-              <p style="margin: 0 0 8px 0;">Sent from contact@shieldpulse.io</p>
+              <p style="margin: 0 0 8px 0;">Reply to this email: contact@shieldpulse.io</p>
               <p style="margin: 0;"><a href="https://app.shieldpulse.io/settings/notifications" style="color: #8B9A8F; text-decoration: underline;">Manage notification preferences</a></p>
             </td>
           </tr>
@@ -391,13 +391,36 @@ Error:
 
 ---
 
-## 8. CONTENT HANDLE
+## 8. CONTENT HANDLE AND EMAIL ADDRESSES
 
 Always include **shieldpulse.io** on every piece of content.
 
 Social handle format: **@shieldpulse** (where available).
 
-Email sender: **contact@shieldpulse.io** for all transactional and product emails.
+### Email addresses
+
+Transactional and product emails use two addresses with different purposes:
+
+- **From (sender)**: `support@updates.shieldpulse.io` — authenticated sending subdomain with SPF, DKIM, DMARC configured. Mandatory for deliverability. Never send from the root domain `shieldpulse.io` directly, as this damages sender reputation.
+- **Reply-To**: `contact@shieldpulse.io` — user replies land in the monitored primary inbox.
+- **From name**: `ShieldPulse` (not "ShieldPulse Sentinel", not "ShieldPulse Team", not "The ShieldPulse Team")
+- **Full header format**: `ShieldPulse <support@updates.shieldpulse.io>` with `reply_to` header explicitly set to `contact@shieldpulse.io`
+
+### Code pattern for email sending
+
+Every email in the codebase must follow this pattern when calling Resend:
+
+```typescript
+await resend.emails.send({
+  from: 'ShieldPulse <support@updates.shieldpulse.io>',
+  reply_to: 'contact@shieldpulse.io',
+  to: [userEmail],
+  subject: '...',
+  html: '...',
+});
+```
+
+A shared helper (e.g. `sendBrandedEmail()`) should inject these headers automatically so individual callers cannot forget or diverge.
 
 ---
 
@@ -423,13 +446,20 @@ HUMANIZER: Mandatory compliance with humanizer skill (banned structures, banned 
 HERO TRIPLET EXCEPTION: Three-beat punchy sentences allowed in hero/subject positions only. Not in body copy.
 EXAMPLES: "127 alerts. Only 12 actually matter." / "From zero to monitoring in 5 minutes." / "Stop scanning dashboards."
 ACCESSIBILITY: Never use colour alone for status. Always pair with shape/text. Colorblind-safe design.
-EMAIL SENDER: contact@shieldpulse.io
-NEVER: Stock photos, light mode, italic emphasis, marketing speak, pie charts, em dashes for drama, banned humanizer words.
+EMAIL FROM: ShieldPulse <support@updates.shieldpulse.io>
+EMAIL REPLY-TO: contact@shieldpulse.io
+EMAIL FROM NAME: ShieldPulse (never "ShieldPulse Team" or "ShieldPulse Sentinel")
+NEVER: Stock photos, light mode, italic emphasis, marketing speak, pie charts, em dashes for drama, banned humanizer words, sending from root shieldpulse.io domain.
 ```
 
 ---
 
 ## 10. CHANGELOG
+
+**v2.1 — April 2026 (patch)**
+- Fixed email sender vs reply-to confusion in section 8 and 9: From must be `support@updates.shieldpulse.io` (authenticated sending subdomain, SPF/DKIM/DMARC), Reply-To must be `contact@shieldpulse.io` (monitored inbox)
+- Updated email component library footer (section 7.1) to reflect reply-to guidance
+- Added explicit code pattern for Resend sending in section 8
 
 **v2 — April 2026**
 - Accent color realigned: `#3CFF6F` (deprecated) → `#a8ff60` yellow-green (matches K4 Decision 166)
@@ -440,11 +470,10 @@ NEVER: Stock photos, light mode, italic emphasis, marketing speak, pie charts, e
 - Formalized icon and emoji conventions (allowlist + banlist)
 - Integrated humanizer skill as mandatory voice layer with documented hero-triplet exception
 - Added section 7: Email Component Library (8 reusable HTML snippets, inline styles, email-client-safe)
-- Email sender standardized: contact@shieldpulse.io
 
 **v1 — Original**
 - Initial brand system
 
 ---
 
-*Built for ShieldPulse.io — v2 April 2026*
+*Built for ShieldPulse.io — v2.1 April 2026*
